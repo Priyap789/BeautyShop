@@ -1,32 +1,43 @@
-import { useNavigate } from "react-router-dom";
-import Input from "../components/input";
-import Button from "../components/Button";
+import { Mail, Lock } from "lucide-react";
+import Input from "./input";
+import Button from "./Button";
 
-function LoginForm() {
-  const navigate = useNavigate();
-
-  const handleSignup = () => {
-    navigate("/signup");
-  };
-
+function LoginForm({ onClose, switchToSignup }) {
   return (
-    <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
-      <h2 className="text-2xl font-bold text-center text-red-700 mb-6">
+    <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg relative">
+      
+      {/* Close */}
+      <button
+        onClick={onClose}
+        className="absolute top-3 right-3 text-gray-500 hover:text-pink-600"
+      >
+        ✕
+      </button>
+
+      <h2 className="text-2xl font-bold text-center text-pink-700 mb-6">
         Login
       </h2>
 
-      {/* Input Components */}
-      <Input type="email" placeholder="Email" />
-      <Input type="password" placeholder="Password" />
+      {/* Inputs with Icons */}
+      <Input
+        type="email"
+        placeholder="Enter your email"
+        icon={Mail}
+      />
 
-      {/* Button Component */}
+      <Input
+        type="password"
+        placeholder="Enter your password"
+        icon={Lock}
+      />
+
       <Button text="Sign In" />
 
-      <p className="text-center mt-4">
+      <p className="text-center mt-4 text-sm">
         Don’t have an account?
         <button
-          onClick={handleSignup}
-          className="text-red-600 ml-1"
+          onClick={switchToSignup}
+          className="text-pink-600 ml-1 font-medium"
         >
           Sign Up
         </button>

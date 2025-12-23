@@ -1,26 +1,61 @@
+import { useState } from "react";
 import Navbar from "../../components/Navbar";
-import ProductCard from "../../components/ProductCard";
+import Hero from "../../components/Hero";
+//import ProductGrid from "../../components/ProductGrid";
+import LoginForm from "../../components/LoginForm";
+import SignupForm from "../../components/SignupForm";
+//import Cart from "../../components/Cart";
+import Features from "../../components/Features";
+import Footer from "../../components/Footer";
+import SliderSection from "../../components/SliderSection";
+
+
 
 function Home() {
+  const [popupType, setPopupType] = useState(null); // "login" | "signup" | null
+  const [showCart, setShowCart] = useState(false);
+
   return (
     <>
-      <Navbar />
+      {/*Navbar*/}
+      <Navbar
+        onLoginClick={() => setPopupType("login")}
+        onCartClick={() => setShowCart(true)}
+      />
+      <SliderSection/>
+      {/* Main Sections */}
+      <Hero />
+      <Features/>
+      <Footer/>
+      {/*<ProductGrid onAddToCart={() => setShowCart(true)} />
 
-      <div className="flex items-center gap-3">
-        <img
-           src="/image/Skin_care.jpg"
-          alt="Beauty Logo"
-          className="h-100% w-100% object-contain"
-        /></div>
+      {/* LOGIN / SIGNUP POPUP */}
+      {popupType && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          
+          {popupType === "login" && (
+            <LoginForm
+              onClose={() => setPopupType(null)}
+              switchToSignup={() => setPopupType("signup")}
+            />
+          )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-8">
-        <ProductCard name="Lipstick" price="₹499" />
-        <ProductCard name="Face Cream" price="₹699" />
-        <ProductCard name="Perfume" price="₹999" />
-      </div>
+          {popupType === "signup" && (
+            <SignupForm
+              onClose={() => setPopupType(null)}
+              switchToLogin={() => setPopupType("login")}
+            />
+          )}
+
+        </div>
+      )}
+
+      {/* CART 
+      {showCart && (
+        <Cart onCheckout={() => alert("Go to Checkout")} />
+      )}*/}
     </>
   );
 }
-
 
 export default Home;
