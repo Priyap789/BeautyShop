@@ -12,9 +12,9 @@ function ProductCard({ product }) {
           className="w-full h-52 object-cover"
         />
 
-        {/* Category badge */}
-        <span className="absolute top-3 left-3 bg-pink-100 text-pink-600 text-xs px-2 py-1 rounded-full">
-          {product.category}
+        {/* Category badge (UPDATED) */}
+        <span className="absolute top-3 left-3 bg-pink-100 text-pink-600 text-xs px-2 py-1 rounded-full capitalize">
+          {product.subCategory || product.mainCategory}
         </span>
       </div>
 

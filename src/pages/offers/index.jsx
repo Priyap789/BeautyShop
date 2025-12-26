@@ -1,10 +1,27 @@
-function Offers() {
+import OfferImageSlider from "../../components/OfferImageSlider";
+
+const OfferDetails = () => {
+  const offer = {
+    
+    horizontalImages: [
+      "/image/offer1.jpg",
+      "/image/offer2.jpg",
+      "/image/offer3.jpg",
+      "/image/offer4.jpg",
+    ],
+  };
+
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-4">All Offers</h1>
-      <p>Here you can show all available offers.</p>
+    <div className="max-w-100% mx-auto px-4 py-6">
+        
+      {/* Multiple Horizontal Images */}
+          
+      <OfferImageSlider images={offer.horizontalImages} />
+           
+
+      
     </div>
   );
-}
+};
 
-export default Offers;
+export default OfferDetails;

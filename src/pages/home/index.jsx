@@ -23,7 +23,6 @@ function Home() {
         onCartClick={() => setShowCart(true)}
       />
       <SliderSection/>
-      {/* Main Sections */}
       <Hero />
       <Features/>
       <Footer/>

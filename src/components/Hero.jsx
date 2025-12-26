@@ -38,7 +38,7 @@ function Hero() {
       {/* Right Image */}
       <div className="md:w-1/2 mt-8 md:mt-0 flex justify-center">
         <img
-          src="/image/2.jpg"   
+          src="/image/logo.png"   
           alt="Beauty Products"
           className="rounded-xl w-80"
         />
