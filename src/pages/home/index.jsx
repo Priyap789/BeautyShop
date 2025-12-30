@@ -18,14 +18,11 @@ function Home() {
   return (
     <>
       {/*Navbar*/}
-      <Navbar
-        onLoginClick={() => setPopupType("login")}
-        onCartClick={() => setShowCart(true)}
-      />
+     
       <SliderSection/>
       <Hero />
       <Features/>
-      <Footer/>
+      {/*<Footer/>*/}
       {/*<ProductGrid onAddToCart={() => setShowCart(true)} />
 
       {/* LOGIN / SIGNUP POPUP */}

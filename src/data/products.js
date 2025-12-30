@@ -22,7 +22,7 @@ const products = [
     oldPrice: 1799,
     rating: 4.8,
     reviews: 567,
-    image: "/image/serum.jpg",
+    image: "/image/p1.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const products = [
     price: 499,
     rating: 4.4,
     reviews: 321,
-    image: "/image/facewash.jpg",
+    image: "/image/p2.jpg",
   },
 
   /* ================= MAKEUP : LIP ================= */

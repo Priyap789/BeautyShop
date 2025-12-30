@@ -1,10 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Search, ShoppingCart } from "lucide-react";
+import { useState } from "react";
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
+import { useSelector } from "react-redux";
 
 function Navbar({ onLoginClick }) {
   const navigate = useNavigate();
+  const [popupType, setPopupType] = useState(null); // "login" | "signup" | null
+  const [showCart, setShowCart] = useState(false);
+    const cartItems = useSelector(state => state.cart.items);
 
   return (
+
+
     <nav className="bg-white shadow-md px-6 py-4 flex items-center justify-between">
 
       {/* Logo */}
@@ -17,7 +26,7 @@ function Navbar({ onLoginClick }) {
       <ul className="hidden md:flex gap-6 font-medium items-center">
 
         <li>
-          <Link to="/" className="hover:text-pink-600">HOME</Link>
+          <Link to="/home" className="hover:text-pink-600">HOME</Link>
         </li>
 
         <li>
@@ -105,19 +114,49 @@ function Navbar({ onLoginClick }) {
       {/* Icons */}
       <div className="flex items-center gap-4">
         <Search className="cursor-pointer" />
+        
+        {/*add to cart*/}
+        <div
+        className="relative cursor-pointer"
+        onClick={() => navigate("/cart")}
+      >
+        <ShoppingCart />
 
-        <ShoppingCart
-          className="cursor-pointer"
-          onClick={() => navigate("/products")}
-        />
+        {cartItems.length > 0 && (
+          <span className="absolute -top-2 -right-2 bg-pink-500 text-white text-xs px-2 rounded-full">
+            {cartItems.length}
+          </span>
+        )}
+      </div>
+        
 
         <button
-          onClick={onLoginClick}
+          onClick={() => setPopupType("login")}
           className="bg-pink-500 text-white px-4 py-1 rounded-full"
         >
           Login
         </button>
       </div>
+       {/* LOGIN / SIGNUP POPUP */}
+      {popupType && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          
+          {popupType === "login" && (
+            <LoginForm
+              onClose={() => setPopupType(null)}
+              switchToSignup={() => setPopupType("signup")}
+            />
+          )}
+
+          {popupType === "signup" && (
+            <SignupForm
+              onClose={() => setPopupType(null)}
+              switchToLogin={() => setPopupType("login")}
+            />
+          )}
+
+        </div>
+      )}
     </nav>
   );
 }

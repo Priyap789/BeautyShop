@@ -34,10 +34,10 @@ function ProductsPage() {
   return (
     <>
       {/* Navbar */}
-      <Navbar />
+     
 
       {/* Page Content */}
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="min-h-screen  ">
         <h1 className="text-3xl font-bold text-pink-700 mb-6 capitalize">
           {getTitle()}
         </h1>

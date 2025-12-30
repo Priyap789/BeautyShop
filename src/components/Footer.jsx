@@ -11,7 +11,7 @@ function Footer() {
           <p className="text-sm text-gray-400">
             Your trusted partner for premium beauty products. Discover the best in skincare, makeup, and haircare.
           </p>
-
+      
           <div className="flex gap-3 mt-4">
             <Facebook className="w-5 h-5 cursor-pointer" />
             <Instagram className="w-5 h-5 cursor-pointer"/>
